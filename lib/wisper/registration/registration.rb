@@ -11,6 +11,10 @@ module Wisper
       @on       = stringify(options.fetch(:on, ALL))
     end
 
+    def listener
+      @listener.new if @listener.class == Class
+    end
+
     private
 
     def should_broadcast?(event)
